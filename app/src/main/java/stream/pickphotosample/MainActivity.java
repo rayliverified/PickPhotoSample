@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.werb.permissionschecker.PermissionChecker;
+
+import stream.custombutton.CustomButton;
 import stream.pickphotoview.PickPhotoView;
 import stream.pickphotoview.adapter.SpaceItemDecoration;
 import stream.pickphotoview.util.PickConfig;

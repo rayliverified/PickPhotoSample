@@ -53,17 +53,17 @@
             android:textSize="24sp"
             android:textColor="@color/white"/>
 
-        <stream.pickphotosample.CustomButton
+        <stream.custombutton.CustomButton
             style="@style/CustomButtonStyle"
             android:id="@+id/btn1"
             android:text="Single Select"/>
 
-        <stream.pickphotosample.CustomButton
+        <stream.custombutton.CustomButton
             style="@style/CustomButtonStyle"
             android:id="@+id/btn2"
             android:text="Multi Select"/>
 
-        <stream.pickphotosample.CustomButton
+        <stream.custombutton.CustomButton
             style="@style/CustomButtonStyle"
             android:id="@+id/btn3"
             android:text="Photo Preview"/>
