@@ -27,11 +27,6 @@ import stream.pickphotoview.widget.MyToolbar;
 import java.io.File;
 import java.util.ArrayList;
 
-
-/**
- * Created by wanbo on 2017/1/4.
- */
-
 public class PickPhotoPreviewActivity extends AppCompatActivity {
 
     private ArrayList<String> allImagePath;

@@ -17,10 +17,6 @@ import stream.pickphotoview.model.PickData;
 import stream.pickphotoview.util.PickConfig;
 import stream.pickphotoview.widget.MyToolbar;
 
-/**
- * Created by wanbo on 2017/1/3.
- */
-
 public class PickListActivity extends AppCompatActivity {
 
     private PickData pickData;

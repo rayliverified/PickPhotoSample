@@ -21,10 +21,6 @@ import stream.pickphotoview.util.PickPreferences;
 
 import java.util.ArrayList;
 
-/**
- * Created by wanbo on 2017/1/3.
- */
-
 public class PickListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private GroupImage groupImage;

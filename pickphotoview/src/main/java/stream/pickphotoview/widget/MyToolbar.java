@@ -15,10 +15,6 @@ import android.widget.TextView;
 
 import com.werb.pickphotoview.R;
 
-/**
- * Created by wanbo on 2017/1/3.
- */
-
 public class MyToolbar extends RelativeLayout {
 
     public FrameLayout leftLayout, rightLayout,container;

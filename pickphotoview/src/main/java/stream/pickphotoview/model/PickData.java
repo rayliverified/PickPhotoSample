@@ -8,10 +8,6 @@ import stream.pickphotoview.util.PickConfig;
 
 import java.io.Serializable;
 
-/**
- * Created by wanbo on 2016/12/30.
- */
-
 public class PickData implements Serializable {
 
     private int pickPhotoSize;

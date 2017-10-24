@@ -32,10 +32,6 @@ import stream.pickphotoview.widget.MyToolbar;
 
 import java.util.ArrayList;
 
-/**
- * Created by wanbo on 2016/12/30.
- */
-
 public class PickPhotoActivity extends AppCompatActivity {
 
     private PickData pickData;

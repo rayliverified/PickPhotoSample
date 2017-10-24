@@ -4,10 +4,6 @@ import android.text.TextUtils;
 
 import com.google.gson.Gson;
 
-/**
- * Created by wanbo on 2017/1/3.
- */
-
 public class PickGson {
 
     private static Gson gson = new Gson();

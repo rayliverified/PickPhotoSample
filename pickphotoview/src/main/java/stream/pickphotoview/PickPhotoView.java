@@ -6,10 +6,6 @@ import android.content.Intent;
 import stream.pickphotoview.model.PickData;
 import stream.pickphotoview.util.PickConfig;
 
-/**
- * Created by wanbo on 2016/12/30.
- */
-
 public class PickPhotoView {
 
     private PickData pickData;

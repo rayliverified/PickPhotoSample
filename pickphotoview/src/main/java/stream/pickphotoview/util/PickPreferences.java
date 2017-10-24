@@ -10,10 +10,6 @@ import stream.pickphotoview.model.DirImage;
 import stream.pickphotoview.model.GroupImage;
 import stream.pickphotoview.model.PickData;
 
-/**
- * Created by wanbo on 2017/1/3.
- */
-
 public class PickPreferences {
 
     private static PickPreferences mInstance = null;

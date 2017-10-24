@@ -2,11 +2,6 @@ package stream.pickphotoview.util;
 
 import com.werb.pickphotoview.R;
 
-/**
- * Created by wanbo on 2016/12/30.
- * PickPhotoView 配置文件
- */
-
 public class PickConfig {
 
     // TAG

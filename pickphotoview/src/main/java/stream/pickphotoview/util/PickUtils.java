@@ -21,10 +21,6 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by wanbo on 2016/12/30.
- */
-
 public class PickUtils {
 
     private static PickUtils mInstance = null;
