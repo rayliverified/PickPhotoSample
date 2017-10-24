@@ -1,42 +1,50 @@
 package stream.pickphotosample;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.werb.permissionschecker.PermissionChecker;
+import java.util.ArrayList;
 
 import stream.custombutton.CustomButton;
+import stream.custompermissionsdialogue.PermissionsDialogue;
+import stream.custompermissionsdialogue.utils.PermissionUtils;
 import stream.pickphotoview.PickPhotoView;
 import stream.pickphotoview.adapter.SpaceItemDecoration;
 import stream.pickphotoview.util.PickConfig;
 import stream.pickphotoview.util.PickUtils;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
 
     private SampleAdapter adapter;
-    private PermissionChecker permissionChecker;
-    private String[] PERMISSIONS = new String[]{
-            Manifest.permission.CAMERA,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        permissionChecker = new PermissionChecker(this);
-        if(permissionChecker.isLackPermissions(PERMISSIONS)){
-            permissionChecker.requestPermissions();
+        if (!PermissionUtils.IsPermissionsEnabled(getApplicationContext(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}))
+        {
+            PermissionsDialogue.Builder permissions = new PermissionsDialogue.Builder(this)
+                    .setMessage(getString(R.string.app_name) + " is a photo selector and requires the following permissions: ")
+                    .setIcon(R.mipmap.ic_launcher)
+                    .setCancelable(false)
+                    .setRequireStorage(PermissionsDialogue.REQUIRED)
+                    .setRequireCamera(PermissionsDialogue.REQUIRED)
+                    .setOnContinueClicked(new PermissionsDialogue.OnContinueClicked() {
+                        @Override
+                        public void OnClick(View view, Dialog dialog) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .build();
+            permissions.show();
         }
 
         //Select Single Image - When image is selected, gallery immediately closes and returns image.
@@ -115,17 +123,6 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == PickConfig.PICK_PHOTO_DATA) {
             ArrayList<String> selectPaths = (ArrayList<String>) data.getSerializableExtra(PickConfig.INTENT_IMG_LIST_SELECT);
             adapter.updateData(selectPaths);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case PermissionChecker.PERMISSION_REQUEST_CODE:
-                if (!permissionChecker.hasAllPermissionsGranted(grantResults)) {
-                    permissionChecker.showDialog();
-                }
-                break;
         }
     }
 }
