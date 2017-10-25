@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group='com.github.searchy2'
-version = '1.1'
+version = '2.1'
 
 android {
     compileSdkVersion 26
@@ -36,6 +36,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.0.2'
     compile 'com.android.support:recyclerview-v7:26.0.2'
     compile 'com.github.bumptech.glide:glide:4.2.0'
-    compile 'com.shizhefei:LargeImageView:1.0.9'
     compile 'com.google.code.gson:gson:2.8.0'
 }

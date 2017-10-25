@@ -195,14 +195,14 @@ public class PickPhotoActivity extends AppCompatActivity {
     View.OnClickListener imageClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            String imgPath = (String) v.getTag(R.id.pick_image_path);
-            Intent intent = new Intent();
-            intent.setClass(PickPhotoActivity.this, PickPhotoPreviewActivity.class);
-            intent.putExtra(PickConfig.INTENT_IMG_PATH, imgPath);
-            intent.putExtra(PickConfig.INTENT_IMG_LIST, allPhotos);
-            intent.putExtra(PickConfig.INTENT_IMG_LIST_SELECT, pickGridAdapter.getSelectPath());
-            intent.putExtra(PickConfig.INTENT_PICK_DATA, pickData);
-            startActivityForResult(intent, PickConfig.PREVIEW_PHOTO_DATA);
+//            String imgPath = (String) v.getTag(R.id.pick_image_path);
+//            Intent intent = new Intent();
+//            intent.setClass(PickPhotoActivity.this, PickPhotoPreviewActivity.class);
+//            intent.putExtra(PickConfig.INTENT_IMG_PATH, imgPath);
+//            intent.putExtra(PickConfig.INTENT_IMG_LIST, allPhotos);
+//            intent.putExtra(PickConfig.INTENT_IMG_LIST_SELECT, pickGridAdapter.getSelectPath());
+//            intent.putExtra(PickConfig.INTENT_PICK_DATA, pickData);
+//            startActivityForResult(intent, PickConfig.PREVIEW_PHOTO_DATA);
         }
     };
 
