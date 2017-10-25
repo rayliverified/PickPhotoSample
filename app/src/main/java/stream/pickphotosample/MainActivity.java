@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         RecyclerView photoList = findViewById(R.id.photo_list);
-        GridLayoutManager layoutManager = new GridLayoutManager(this, 4);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
         photoList.setLayoutManager(layoutManager);
         photoList.addItemDecoration(new SpaceItemDecoration(PickUtils.getInstance(MainActivity.this).dp2px(PickConfig.ITEM_SPACE), 3));
         adapter = new SampleAdapter(this, null);

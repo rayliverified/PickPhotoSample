@@ -121,7 +121,6 @@ public class PickPhotoPreviewActivity extends AppCompatActivity {
         }
 
         @Override
-
         public Object instantiateItem(ViewGroup container, final int position) {
             int i = position % 4;
             final LargeImageView pic = imageViews.get(i);
@@ -129,11 +128,11 @@ public class PickPhotoPreviewActivity extends AppCompatActivity {
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             String path = allImagePath.get(position);
             if(path.endsWith(".gif")) {
-                container.addView(gif,params);
+                container.addView(gif, params);
                 Glide.with(PickPhotoPreviewActivity.this).asGif().load(new File(path)).into(gif);
                 return gif;
             }else {
-                container.addView(pic,params);
+                container.addView(pic, params);
                 pic.setImage(new FileBitmapDecoderFactory(new File(path)));
                 return pic;
             }
