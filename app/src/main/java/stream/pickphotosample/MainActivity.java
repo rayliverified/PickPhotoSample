@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                         .setToolbarColor("#ffffff")
                         .setToolbarIconColor("#000000")
                         .setClickSelectable(true)
-                        .setShowGif(false)
+                        .setShowGif(true)
                         .start();
             }
         });
