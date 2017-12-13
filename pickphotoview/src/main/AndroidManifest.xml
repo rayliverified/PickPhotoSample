@@ -10,11 +10,9 @@
         android:supportsRtl="true">
 
         <activity android:name="stream.pickphotoview.PickPhotoActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/PickAppThemeBottom"/>
 
         <activity android:name="stream.pickphotoview.PickListActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/PickAppThemeRight"/>
     </application>
 </manifest>

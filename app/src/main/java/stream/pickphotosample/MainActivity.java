@@ -76,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
                         .setShowCamera(true)
                         .setSpanCount(4)
                         .setLightStatusBar(true)
-                        .setStatusBarColor('#' + Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.white) & 0x00ffffff))
-                        .setToolbarColor('#' + Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.white) & 0x00ffffff))
-                        .setToolbarIconColor('#' + Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.black) & 0x00ffffff))
-                        .setSelectIconColor('#' + Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.pick_green) & 0x00ffffff))
+                        .setStatusBarColor('#' + Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.white)))
+                        .setToolbarColor('#' + Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.white)))
+                        .setToolbarIconColor('#' + Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.black)))
+                        .setSelectIconColor('#' + Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.pick_green)))
                         .setClickSelectable(true)
                         .start();
             }
