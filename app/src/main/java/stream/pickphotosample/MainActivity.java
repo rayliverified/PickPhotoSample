@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 new PickPhotoView.Builder(MainActivity.this)
                         .setPickPhotoSize(6)
-                        .setShowCamera(true)
+                        .setShowCamera(false)
                         .setSpanCount(4)
                         .setLightStatusBar(true)
                         .setStatusBarColor('#' + Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.white)))
