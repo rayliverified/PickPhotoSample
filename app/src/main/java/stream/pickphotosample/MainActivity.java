@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import java.util.ArrayList;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
 import stream.custombutton.CustomButton;
 import stream.custompermissionsdialogue.PermissionsDialogue;
 import stream.custompermissionsdialogue.utils.PermissionUtils;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                     })
+                    .setDecorView(getWindow().getDecorView())
                     .build();
             permissions.show();
         }
