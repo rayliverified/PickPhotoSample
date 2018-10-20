@@ -22,10 +22,10 @@ dependencies {
         maven { url 'https://jitpack.io' }
     }
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.github.searchy2:CustomButton:1.8.0'
-    implementation 'com.github.searchy2:CustomPermissionsDialogue:2.0.0'
+    implementation 'com.github.searchy2:CustomButton:1.8.2'
+    implementation 'com.github.searchy2:CustomPermissionsDialogue:2.0.1'
 
-    implementation 'androidx.appcompat:appcompat:1.0.0-rc01'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     implementation project(':pickphotoview')
 }
