@@ -1,12 +1,7 @@
 package stream.pickphotoview.adapter;
 
 import android.content.Context;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.werb.pickphotoview.R;
+
+import java.util.ArrayList;
+
+import androidx.recyclerview.widget.RecyclerView;
+import stream.pickphotoview.R;
 import stream.pickphotoview.model.DirImage;
 import stream.pickphotoview.model.GroupImage;
 import stream.pickphotoview.util.PickPreferences;
-
-import java.util.ArrayList;
 
 public class PickListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

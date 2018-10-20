@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
 
-import com.werb.pickphotoview.R;
-
 import stream.pickphotoview.adapter.PickListAdapter;
 import stream.pickphotoview.model.PickData;
 import stream.pickphotoview.util.PickConfig;

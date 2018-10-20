@@ -1,6 +1,6 @@
 package stream.pickphotoview.util;
 
-import com.werb.pickphotoview.R;
+import stream.pickphotoview.R;
 
 public class PickConfig {
 

@@ -17,7 +17,6 @@
 //import com.bumptech.glide.Glide;
 //import com.shizhefei.view.largeimage.LargeImageView;
 //import com.shizhefei.view.largeimage.factory.FileBitmapDecoderFactory;
-//import com.werb.pickphotoview.R;
 //
 //import stream.pickphotoview.model.PickData;
 //import stream.pickphotoview.model.PickHolder;

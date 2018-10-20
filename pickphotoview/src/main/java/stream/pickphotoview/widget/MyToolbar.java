@@ -5,6 +5,8 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import androidx.core.content.ContextCompat;
+import stream.pickphotoview.R;
+
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +14,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.werb.pickphotoview.R;
 
 public class MyToolbar extends RelativeLayout {
 

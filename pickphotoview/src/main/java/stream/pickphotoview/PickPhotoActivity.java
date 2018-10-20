@@ -16,8 +16,6 @@ import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.werb.pickphotoview.R;
-
 import stream.pickphotoview.adapter.PickGridAdapter;
 import stream.pickphotoview.adapter.SpaceItemDecoration;
 import stream.pickphotoview.model.GroupImage;
