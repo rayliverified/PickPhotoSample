@@ -41,12 +41,12 @@ public class PickPhotoHelper {
                             MediaStore.Images.Media.MIME_TYPE + "=? or "
                                     + MediaStore.Images.Media.MIME_TYPE + "=? or "
                                     + MediaStore.Images.Media.MIME_TYPE + "=?",
-                            new String[]{"image/jpeg", "image/png", "image/gif"}, MediaStore.Images.Media.DATE_MODIFIED + " desc");
+                            new String[]{"image/jpeg", "image/png", "image/gif", "image/x-ms-bmp"}, MediaStore.Images.Media.DATE_MODIFIED + " desc");
                 }else {
                     mCursor = mContentResolver.query(mImageUri, null,
                             MediaStore.Images.Media.MIME_TYPE + "=? or "
                                     + MediaStore.Images.Media.MIME_TYPE + "=?",
-                            new String[]{"image/jpeg", "image/png"}, MediaStore.Images.Media.DATE_MODIFIED + " desc");
+                            new String[]{"image/jpeg", "image/png", "image/x-ms-bmp"}, MediaStore.Images.Media.DATE_MODIFIED + " desc");
                 }
 
                 if (mCursor == null) {
