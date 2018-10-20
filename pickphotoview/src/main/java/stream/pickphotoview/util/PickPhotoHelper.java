@@ -8,18 +8,26 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 
-import stream.pickphotoview.model.DirImage;
-import stream.pickphotoview.model.GroupImage;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
+import stream.pickphotoview.model.DirImage;
+import stream.pickphotoview.model.GroupImage;
+
 public class PickPhotoHelper {
 
-    private Activity activity;
     private static PickPhotoListener listener;
+    private static Handler r = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what == 0) {
+                listener.pickSuccess();
+            }
+        }
+    };
+    private Activity activity;
     private HashMap<String, ArrayList<String>> mGroupMap = new LinkedHashMap<>();
 
     public PickPhotoHelper(Activity activity, PickPhotoListener listener) {
@@ -36,15 +44,17 @@ public class PickPhotoHelper {
 
                 //jpeg & png & gif
                 Cursor mCursor;
-                if(showGif){
+                if (showGif) {
                     mCursor = mContentResolver.query(mImageUri, null,
                             MediaStore.Images.Media.MIME_TYPE + "=? or "
                                     + MediaStore.Images.Media.MIME_TYPE + "=? or "
+                                    + MediaStore.Images.Media.MIME_TYPE + "=? or "
                                     + MediaStore.Images.Media.MIME_TYPE + "=?",
                             new String[]{"image/jpeg", "image/png", "image/gif", "image/x-ms-bmp"}, MediaStore.Images.Media.DATE_MODIFIED + " desc");
-                }else {
+                } else {
                     mCursor = mContentResolver.query(mImageUri, null,
                             MediaStore.Images.Media.MIME_TYPE + "=? or "
+                                    + MediaStore.Images.Media.MIME_TYPE + "=? or "
                                     + MediaStore.Images.Media.MIME_TYPE + "=?",
                             new String[]{"image/jpeg", "image/png", "image/x-ms-bmp"}, MediaStore.Images.Media.DATE_MODIFIED + " desc");
                 }
@@ -59,7 +69,7 @@ public class PickPhotoHelper {
                             .getColumnIndex(MediaStore.Images.Media.DATA));
 
                     File file = new File(path);
-                    if(!file.exists()){
+                    if (!file.exists()) {
                         continue;
                     }
 
@@ -97,13 +107,4 @@ public class PickPhotoHelper {
         }).start();
 
     }
-
-    private static Handler r = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            if(msg.what == 0){
-                listener.pickSuccess();
-            }
-        }
-    };
 }

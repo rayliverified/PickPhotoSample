@@ -4,15 +4,15 @@ import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import stream.custombutton.CustomButton;
 import stream.custompermissionsdialogue.PermissionsDialogue;
 import stream.custompermissionsdialogue.utils.PermissionUtils;
@@ -30,8 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (!PermissionUtils.IsPermissionsEnabled(getApplicationContext(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}))
-        {
+        if (!PermissionUtils.IsPermissionsEnabled(getApplicationContext(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE})) {
             PermissionsDialogue.Builder permissions = new PermissionsDialogue.Builder(this)
                     .setMessage(getString(R.string.app_name) + " is a photo selector and requires the following permissions: ")
                     .setIcon(R.mipmap.ic_launcher)
@@ -118,10 +117,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d("RequestCode", String.valueOf(requestCode));
         Log.d("ResultCode", String.valueOf(resultCode));
         Log.d("Data", String.valueOf(data));
-        if(resultCode == 0){
+        if (resultCode == 0) {
             return;
         }
-        if(data == null){
+        if (data == null) {
             return;
         }
         if (requestCode == PickConfig.PICK_PHOTO_DATA) {

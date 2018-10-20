@@ -41,7 +41,7 @@ public class PickListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(dirImage != null) {
+        if (dirImage != null) {
             String dirName = dirImage.dirName.get(position);
             ArrayList<String> paths = groupImage.mGroupMap.get(dirName);
             GroupImageViewHolder groupImageViewHolder = (GroupImageViewHolder) holder;
@@ -52,17 +52,17 @@ public class PickListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemCount() {
-        if(dirImage != null ) {
+        if (dirImage != null) {
             return dirImage.dirName.size();
-        }else {
+        } else {
             return 0;
         }
     }
 
-    private class GroupImageViewHolder extends RecyclerView.ViewHolder{
+    private class GroupImageViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView cover;
-        private TextView dirNameText,photoSizeText;
+        private TextView dirNameText, photoSizeText;
 
         GroupImageViewHolder(View itemView) {
             super(itemView);
@@ -71,11 +71,11 @@ public class PickListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             photoSizeText = itemView.findViewById(R.id.description);
         }
 
-        void bindItem(String dirName, ArrayList<String> paths){
+        void bindItem(String dirName, ArrayList<String> paths) {
             dirNameText.setText(dirName);
-            photoSizeText.setText(String.format(mContext.getString(R.string.pick_photo_size),paths.size() + ""));
+            photoSizeText.setText(String.format(mContext.getString(R.string.pick_photo_size), paths.size() + ""));
             Glide.with(mContext).load(Uri.parse("file://" + paths.get(0))).into(cover);
-            itemView.setTag(R.id.pick_dir_name,dirName);
+            itemView.setTag(R.id.pick_dir_name, dirName);
         }
 
     }

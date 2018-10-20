@@ -7,7 +7,6 @@ import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import androidx.core.content.FileProvider;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
@@ -21,10 +20,16 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import androidx.core.content.FileProvider;
+
 public class PickUtils {
 
     private static PickUtils mInstance = null;
     private Context context;
+
+    private PickUtils(Context context) {
+        this.context = context;
+    }
 
     public static PickUtils getInstance(Context context) {
         if (mInstance == null) {
@@ -35,10 +40,6 @@ public class PickUtils {
             }
         }
         return mInstance;
-    }
-
-    private PickUtils(Context context) {
-        this.context = context;
     }
 
     public int getWidthPixels() {
@@ -122,11 +123,11 @@ public class PickUtils {
         return null;
     }
 
-    private String getSavePhotoDir(Context context){
+    private String getSavePhotoDir(Context context) {
         return context.getPackageName() + File.separator + "Photo";
     }
 
-    private  File createDir(String directory) {
+    private File createDir(String directory) {
         File createDir = new File(Environment.getExternalStorageDirectory() + File.separator + directory);
         if (!createDir.exists()) {
             if (createDir.mkdirs()) {
@@ -138,9 +139,9 @@ public class PickUtils {
         return null;
     }
 
-    public File getPhotoFile(Context context){
+    public File getPhotoFile(Context context) {
         File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-        if(!dir.exists()){
+        if (!dir.exists()) {
             dir = createDir(getSavePhotoDir(context));
         }
         return new File(dir, "capture.jpg");
@@ -152,12 +153,12 @@ public class PickUtils {
         return dateFormat.format(date) + ".jpg";
     }
 
-    public String getFilePath(Context context){
+    public String getFilePath(Context context) {
         File oldFile = getPhotoFile(context);
         File dir = createDir(getSavePhotoDir(context));
-        File newFile = new File(dir , getPhotoFileName());
+        File newFile = new File(dir, getPhotoFileName());
         // 复制文件
-        int byteread ; // 读取的字节数
+        int byteread; // 读取的字节数
         InputStream in = null;
         OutputStream out = null;
         try {
@@ -174,7 +175,7 @@ public class PickUtils {
             try {
                 if (out != null) out.close();
                 if (in != null) in.close();
-                if (oldFile.exists()){
+                if (oldFile.exists()) {
                     oldFile.delete();
                 }
                 return newFile.getPath();

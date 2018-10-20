@@ -14,8 +14,8 @@
         android:id="@+id/select_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
         android:background="@drawable/pick_svg_select_default">
 
         <ImageView
@@ -40,19 +40,19 @@
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true">
 
         <TextView
             android:id="@+id/gif_badge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/pick_gif_bg"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
-            android:layout_margin="5dp"
             android:text="GIF"
             android:textSize="10sp"
-            android:background="@drawable/pick_gif_bg"
             android:visibility="gone"/>
     </FrameLayout>
 </RelativeLayout>

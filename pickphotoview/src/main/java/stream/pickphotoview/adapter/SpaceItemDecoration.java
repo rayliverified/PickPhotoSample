@@ -1,8 +1,9 @@
 package stream.pickphotoview.adapter;
 
 import android.graphics.Rect;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
 
@@ -22,7 +23,7 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
         if (parent.getChildLayoutPosition(view) < spanCount) {
             outRect.top = space;
         }
-        if((parent.getChildLayoutPosition(view) + 1) % spanCount == 0 ){
+        if ((parent.getChildLayoutPosition(view) + 1) % spanCount == 0) {
             outRect.right = space;
         }
     }

@@ -11,19 +11,19 @@ public class PickPhotoView {
     private PickData pickData;
     private Activity activity;
 
-    private PickPhotoView(Builder builder){
+    private PickPhotoView(Builder builder) {
         pickData = builder.pickData;
         activity = builder.activity;
     }
 
-    private void start(){
+    private void start() {
         Intent intent = new Intent();
-        intent.setClass(activity,PickPhotoActivity.class);
-        intent.putExtra(PickConfig.INTENT_PICK_DATA,pickData);
-        activity.startActivityForResult(intent,PickConfig.PICK_PHOTO_DATA);
+        intent.setClass(activity, PickPhotoActivity.class);
+        intent.putExtra(PickConfig.INTENT_PICK_DATA, pickData);
+        activity.startActivityForResult(intent, PickConfig.PICK_PHOTO_DATA);
     }
 
-    public static class Builder{
+    public static class Builder {
 
         private PickData pickData;
         private Activity activity;
@@ -53,41 +53,41 @@ public class PickPhotoView {
             return this;
         }
 
-        public Builder setToolbarColor(String toolbarColor){
+        public Builder setToolbarColor(String toolbarColor) {
             pickData.setToolbarColor(toolbarColor);
             return this;
         }
 
-        public Builder setStatusBarColor(String statusBarColor){
+        public Builder setStatusBarColor(String statusBarColor) {
             pickData.setStatusBarColor(statusBarColor);
             return this;
         }
 
-        public Builder setToolbarIconColor(String toolbarIconColor){
+        public Builder setToolbarIconColor(String toolbarIconColor) {
             pickData.setToolbarIconColor(toolbarIconColor);
             return this;
         }
 
-        public Builder setSelectIconColor(String selectIconColor){
+        public Builder setSelectIconColor(String selectIconColor) {
             pickData.setSelectIconColor(selectIconColor);
             return this;
         }
 
-        public Builder setLightStatusBar(boolean lightStatusBar){
+        public Builder setLightStatusBar(boolean lightStatusBar) {
             pickData.setLightStatusBar(lightStatusBar);
             return this;
         }
 
-        public Builder setShowGif(boolean showGif){
+        public Builder setShowGif(boolean showGif) {
             pickData.setShowGif(showGif);
             return this;
         }
 
-        private PickPhotoView create(){
+        private PickPhotoView create() {
             return new PickPhotoView(this);
         }
 
-        public void start(){
+        public void start() {
             create().start();
         }
 

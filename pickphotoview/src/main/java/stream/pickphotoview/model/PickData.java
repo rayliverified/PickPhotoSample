@@ -4,9 +4,9 @@ import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.Log;
 
-import stream.pickphotoview.util.PickConfig;
-
 import java.io.Serializable;
+
+import stream.pickphotoview.util.PickConfig;
 
 public class PickData implements Serializable {
 
@@ -34,10 +34,10 @@ public class PickData implements Serializable {
     }
 
     public void setPickPhotoSize(int pickPhotoSize) {
-        if(pickPhotoSize > 0 && pickPhotoSize <= PickConfig.DEFAULT_PICK_SIZE){
+        if (pickPhotoSize > 0 && pickPhotoSize <= PickConfig.DEFAULT_PICK_SIZE) {
             this.pickPhotoSize = pickPhotoSize;
-        }else {
-            Log.e(PickConfig.TAG,"Untrue size : photo size must between 1 and 9");
+        } else {
+            Log.e(PickConfig.TAG, "Untrue size : photo size must between 1 and 9");
             this.pickPhotoSize = PickConfig.DEFAULT_PICK_SIZE;
         }
     }
@@ -47,10 +47,10 @@ public class PickData implements Serializable {
     }
 
     public void setSpanCount(int spanCount) {
-        if(spanCount > 0 && spanCount <= PickConfig.DEFAULT_SPAN_COUNT ) {
+        if (spanCount > 0 && spanCount <= PickConfig.DEFAULT_SPAN_COUNT) {
             this.spanCount = spanCount;
-        }else {
-            Log.e(PickConfig.TAG,"Untrue count : span count must between 1 and 4");
+        } else {
+            Log.e(PickConfig.TAG, "Untrue count : span count must between 1 and 4");
             this.spanCount = PickConfig.DEFAULT_SPAN_COUNT;
         }
     }
@@ -72,7 +72,7 @@ public class PickData implements Serializable {
     }
 
     public int getToolbarColor() {
-        if(TextUtils.isEmpty(toolbarColor)) {
+        if (TextUtils.isEmpty(toolbarColor)) {
             return Color.parseColor("#191919");
         }
         return Color.parseColor(toolbarColor);
@@ -83,7 +83,7 @@ public class PickData implements Serializable {
     }
 
     public int getStatusBarColor() {
-        if(TextUtils.isEmpty(statusBarColor)) {
+        if (TextUtils.isEmpty(statusBarColor)) {
             return Color.parseColor("#191919");
         }
         return Color.parseColor(statusBarColor);
@@ -94,7 +94,7 @@ public class PickData implements Serializable {
     }
 
     public int getToolbarIconColor() {
-        if(TextUtils.isEmpty(toolbarIconColor)) {
+        if (TextUtils.isEmpty(toolbarIconColor)) {
             return Color.parseColor("#FFFFFF");
         }
         return Color.parseColor(toolbarIconColor);
@@ -105,7 +105,7 @@ public class PickData implements Serializable {
     }
 
     public int getSelectIconColor() {
-        if(TextUtils.isEmpty(selectIconColor)) {
+        if (TextUtils.isEmpty(selectIconColor)) {
             return Color.parseColor("#00C07F");
         }
         return Color.parseColor(selectIconColor);

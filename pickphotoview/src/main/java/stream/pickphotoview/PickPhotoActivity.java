@@ -5,17 +5,19 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import stream.pickphotoview.adapter.PickGridAdapter;
 import stream.pickphotoview.adapter.SpaceItemDecoration;
 import stream.pickphotoview.model.GroupImage;
@@ -28,10 +30,21 @@ import stream.pickphotoview.util.PickPreferences;
 import stream.pickphotoview.util.PickUtils;
 import stream.pickphotoview.widget.MyToolbar;
 
-import java.util.ArrayList;
-
 public class PickPhotoActivity extends AppCompatActivity {
 
+    View.OnClickListener imageClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+//            String imgPath = (String) v.getTag(R.id.pick_image_path);
+//            Intent intent = new Intent();
+//            intent.setClass(PickPhotoActivity.this, PickPhotoPreviewActivity.class);
+//            intent.putExtra(PickConfig.INTENT_IMG_PATH, imgPath);
+//            intent.putExtra(PickConfig.INTENT_IMG_LIST, allPhotos);
+//            intent.putExtra(PickConfig.INTENT_IMG_LIST_SELECT, pickGridAdapter.getSelectPath());
+//            intent.putExtra(PickConfig.INTENT_PICK_DATA, pickData);
+//            startActivityForResult(intent, PickConfig.PREVIEW_PHOTO_DATA);
+        }
+    };
     private PickData pickData;
     private RecyclerView photoList;
     private PickGridAdapter pickGridAdapter;
@@ -39,6 +52,12 @@ public class PickPhotoActivity extends AppCompatActivity {
     private TextView selectText, selectImageSize;
     private ArrayList<String> allPhotos;
     private Context mContext;
+    private View.OnClickListener selectClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            select();
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,7 +88,7 @@ public class PickPhotoActivity extends AppCompatActivity {
             window.setStatusBarColor(pickData.getStatusBarColor());
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if(pickData.isLightStatusBar()) {
+            if (pickData.isLightStatusBar()) {
                 getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
             }
         }
@@ -109,9 +128,9 @@ public class PickPhotoActivity extends AppCompatActivity {
             public void pickSuccess() {
                 GroupImage groupImage = PickPreferences.getInstance(PickPhotoActivity.this).getListImage();
                 allPhotos = groupImage.mGroupMap.get(PickConfig.ALL_PHOTOS);
-                if(allPhotos == null){
+                if (allPhotos == null) {
 //                    Log.d("PickPhotoView","Image is Empty");
-                }else {
+                } else {
 //                    Log.d("All photos size:", String.valueOf(allPhotos.size()));
                 }
                 if (allPhotos != null && !allPhotos.isEmpty()) {
@@ -180,7 +199,7 @@ public class PickPhotoActivity extends AppCompatActivity {
             intent.putExtra(PickConfig.INTENT_IMG_LIST_SELECT, list);
             setResult(PickConfig.PICK_PHOTO_DATA, intent);
             finish();
-        }else if(requestCode == PickConfig.PREVIEW_PHOTO_DATA){
+        } else if (requestCode == PickConfig.PREVIEW_PHOTO_DATA) {
             if (data != null) {
                 ArrayList<String> selectPath = (ArrayList<String>) data.getSerializableExtra(PickConfig.INTENT_IMG_LIST_SELECT);
                 pickGridAdapter.setSelectPath(selectPath);
@@ -190,29 +209,8 @@ public class PickPhotoActivity extends AppCompatActivity {
         }
     }
 
-    View.OnClickListener imageClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-//            String imgPath = (String) v.getTag(R.id.pick_image_path);
-//            Intent intent = new Intent();
-//            intent.setClass(PickPhotoActivity.this, PickPhotoPreviewActivity.class);
-//            intent.putExtra(PickConfig.INTENT_IMG_PATH, imgPath);
-//            intent.putExtra(PickConfig.INTENT_IMG_LIST, allPhotos);
-//            intent.putExtra(PickConfig.INTENT_IMG_LIST_SELECT, pickGridAdapter.getSelectPath());
-//            intent.putExtra(PickConfig.INTENT_PICK_DATA, pickData);
-//            startActivityForResult(intent, PickConfig.PREVIEW_PHOTO_DATA);
-        }
-    };
-
-    private View.OnClickListener selectClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            select();
-        }
-    };
-
-    public void select(){
-        if(pickGridAdapter == null){
+    public void select() {
+        if (pickGridAdapter == null) {
             return;
         }
 

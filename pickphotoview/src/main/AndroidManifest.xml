@@ -1,18 +1,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="stream.pickphotoview">
+          package="stream.pickphotoview">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
         android:supportsRtl="true">
 
-        <activity android:name="stream.pickphotoview.PickPhotoActivity"
+        <activity
+            android:name="stream.pickphotoview.PickPhotoActivity"
             android:theme="@style/PickAppThemeBottom"/>
 
-        <activity android:name="stream.pickphotoview.PickListActivity"
+        <activity
+            android:name="stream.pickphotoview.PickListActivity"
             android:theme="@style/PickAppThemeRight"/>
     </application>
 </manifest>
