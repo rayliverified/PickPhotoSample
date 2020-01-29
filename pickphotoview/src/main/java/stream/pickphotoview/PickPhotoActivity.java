@@ -184,7 +184,7 @@ public class PickPhotoActivity extends AppCompatActivity {
             }
         } else if (requestCode == PickConfig.CAMERA_PHOTO_DATA) {
             String path;
-            if (data != null) {
+            if (data != null && data.getData() != null) {
                 path = data.getData().getPath();
                 if (path.contains("/pick_camera")) {
                     path = path.replace("/pick_camera", "/storage/emulated/0/DCIM/Camera");
